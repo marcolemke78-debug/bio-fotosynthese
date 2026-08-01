@@ -496,6 +496,11 @@ p {
 }
 
 
+/* Hamburger-Knopf. Sichtbar ist er nur auf schmalen Bildschirmen - das
+   regelt die Media-Query weiter oben (min-width: 1025px -> display:none).
+   Hier KEIN display:none setzen: Diese Regel steht spaeter in der Datei und
+   wuerde die Media-Query ueberschreiben, weil beide gleich spezifisch sind.
+   Der Knopf waere dann auf jedem Geraet unsichtbar. */
 .menu-toggle {
   position: fixed;
   top: 1rem;
@@ -505,11 +510,11 @@ p {
   color: white;
   border: none;
   border-radius: 6px;
-  width: 40px;
-  height: 40px;
   font-size: 1.2rem;
   cursor: pointer;
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -1004,3 +1009,15 @@ p {
 .blank-input        { min-height: 44px; }
 .factor-slider      { height: 44px; }
 .menu-toggle        { min-width: 44px; min-height: 44px; }
+
+/* Aufzaehlungen im Lektionstext einruecken - ohne padding haengen die
+   Punkte links ausserhalb des Textblocks */
+#lesson-container ul,
+#lesson-container ol {
+  padding-left: 1.4rem;
+  margin: 0.6rem 0;
+}
+#lesson-container li { margin-bottom: 0.35rem; }
+
+/* Die Lektionsliste in der Sidebar hat eigene Abstaende */
+#sidebar ul { padding-left: 0; }
