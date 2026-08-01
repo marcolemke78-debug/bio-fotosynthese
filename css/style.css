@@ -1021,3 +1021,13 @@ p {
 
 /* Die Lektionsliste in der Sidebar hat eigene Abstaende */
 #sidebar ul { padding-left: 0; }
+
+/* ===================================================================
+ * Diese Regel MUSS am Dateiende stehen.
+ * Sichtbarkeit des Hamburger-Knopfs wird ueber die Kaskade entschieden:
+ * Basis = sichtbar (flex), ab Desktop-Breite ausgeblendet. Stuende das
+ * hier weiter oben, wuerde die spaetere Basis-Regel es ueberschreiben.
+ * =================================================================== */
+@media (min-width: 1025px) {
+  .menu-toggle { display: none; }
+}
