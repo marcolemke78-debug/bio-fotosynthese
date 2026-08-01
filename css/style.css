@@ -1,0 +1,1006 @@
+/* === CSS-Variablen === */
+:root {
+  --accent: #2563EB;
+  --accent-light: #DBEAFE;
+  --success: #16A34A;
+  --error: #DC2626;
+  --text: #1F2937;
+  --text-light: #6B7280;
+  --bg: #FFFFFF;
+  --sidebar-bg: #F9FAFB;
+  --border: #E5E7EB;
+  --sidebar-width: 280px;
+  --signal-high: #16A34A;
+  --signal-low: #4B5563;
+  --signal-carry: #F59E0B;
+  --signal-active: #2563EB;
+}
+
+
+/* === Reset === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* === Body: CSS Grid Layout === */
+body {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+
+/* === Sidebar === */
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+
+#sidebar h2 {
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.02em;
+}
+
+
+#sidebar h3 {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+
+#sidebar ul {
+  list-style: none;
+}
+
+
+#sidebar li {
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text);
+  transition: background 0.15s ease;
+}
+
+
+#sidebar li:hover {
+  background: var(--accent-light);
+}
+
+
+#sidebar li.active {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+
+#sidebar li.completed {
+  color: var(--success);
+}
+
+
+#sidebar li.in-progress {
+  color: var(--text);
+}
+
+
+#sidebar li.not-started {
+  color: var(--text-light);
+}
+
+
+#sidebar li.active .exam-icon,
+#sidebar li.completed .exam-icon {
+  color: inherit;
+}
+
+
+/* Reset-Button: wird durch flex + margin-top:auto nach unten gedrückt */
+#reset-progress {
+  margin-top: auto;
+  padding: 0.6rem 1rem;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-light);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+
+#reset-progress:hover {
+  background: var(--error);
+  color: #fff;
+  border-color: var(--error);
+}
+
+
+/* === Hauptinhalt === */
+#content {
+  padding: 2rem 3rem;
+  max-width: 800px;
+}
+
+
+/* === Fortschrittsbalken === */
+#progress-bar-container {
+  height: 4px;
+  background: #E5E7EB;
+  border-radius: 2px;
+  margin-bottom: 2rem;
+}
+
+
+#progress-bar {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+
+/* === Typografie === */
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+
+h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+
+p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+
+/* === Phase Tabs === */
+.phase-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+
+
+.phase-tab {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+}
+
+
+.phase-tab:hover {
+  color: var(--text);
+}
+
+
+.phase-tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  font-weight: 600;
+}
+
+
+/* === Phasen === */
+.phase {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+
+.phase.active {
+  display: block;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* === Beispiel-Schritte === */
+.example-step {
+  background: var(--sidebar-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+
+.example-step summary {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text);
+  list-style: none;
+}
+
+
+.example-step summary::before {
+  content: '▶ ';
+  font-size: 0.7rem;
+  margin-right: 0.5rem;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+
+.example-step[open] summary::before {
+  transform: rotate(90deg);
+}
+
+
+.step-content {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--border);
+}
+
+
+/* === Lektion Titel === */
+#lesson-container h1 {
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+}
+
+
+/* === Uebungen allgemein === */
+.exercise-question {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+
+.exercise-feedback {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+
+.exercise-feedback.correct {
+  background: #DCFCE7;
+  color: #166534;
+  border: 1px solid #BBF7D0;
+}
+
+
+.exercise-feedback.incorrect {
+  background: #FEF2F2;
+  color: #991B1B;
+  border: 1px solid #FECACA;
+}
+
+
+/* === Multiple Choice === */
+.mc-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+
+.mc-option {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+
+.mc-option:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+
+.mc-option.correct {
+  border-color: var(--success);
+  background: #DCFCE7;
+  color: #166534;
+}
+
+
+.mc-option.incorrect {
+  border-color: var(--error);
+  background: #FEF2F2;
+  color: #991B1B;
+}
+
+
+.mc-option:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+
+.truth-table .result-col.correct {
+  background: #DCFCE7;
+  color: #166534;
+}
+
+
+.truth-table .result-col.incorrect {
+  background: #FEF2F2;
+  color: #991B1B;
+}
+
+
+.exercise-check-btn {
+  margin-top: 1rem;
+  padding: 0.6rem 1.5rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+
+
+.exercise-check-btn:hover {
+  background: #1D4ED8;
+}
+
+
+.exercise-check-btn:disabled {
+  background: var(--text-light);
+  cursor: not-allowed;
+}
+
+
+/* === Zuordnung === */
+.matching-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+
+.match-item {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+
+.match-item:hover {
+  border-color: var(--accent);
+}
+
+
+.match-item.selected {
+  border-color: var(--accent);
+  background: var(--accent-light);
+  box-shadow: 0 0 0 2px var(--accent-light);
+}
+
+
+.match-item.matched {
+  opacity: 0.9;
+  color: white;
+  font-weight: 600;
+}
+
+
+.binary-input.correct {
+  border-color: var(--success);
+  background: #DCFCE7;
+}
+
+
+.binary-input.incorrect {
+  border-color: var(--error);
+  background: #FEF2F2;
+}
+
+
+/* === Responsive: Tablet (< 1024px) === */
+@media (max-width: 1024px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+
+  #sidebar {
+    position: fixed;
+    left: -280px;
+    top: 0;
+    z-index: 100;
+    transition: left 0.3s;
+    box-shadow: none;
+  }
+
+  #sidebar.open {
+    left: 0;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  }
+
+  #content {
+    padding: 1rem 1.5rem;
+  }
+
+  /* Hamburger Button */
+  .menu-toggle {
+    display: block;
+  }
+}
+
+
+@media (min-width: 1025px) {
+  .menu-toggle {
+    display: none;
+  }
+
+
+}
+
+
+.menu-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 101;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: none;
+}
+
+
+.reading-guide {
+  background: #f3f4f6;
+  border-left: 4px solid #6b7280;
+  padding: 10px 14px;
+  margin: 16px 0;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+
+.reading-guide strong {
+  color: #374151;
+}
+
+
+/* === Erklaerungs-Bloecke (Analogie & Warum-Kontext) === */
+.analogy-box {
+  background: #eff6ff;
+  border-left: 4px solid #2563EB;
+  padding: 12px 16px;
+  margin: 16px 0;
+  border-radius: 4px;
+  line-height: 1.55;
+}
+
+
+.analogy-box strong {
+  color: #1e40af;
+}
+
+
+.why-context {
+  background: #fffbeb;
+  border-left: 4px solid #f59e0b;
+  padding: 12px 16px;
+  margin: 16px 0;
+  border-radius: 4px;
+  line-height: 1.55;
+}
+
+
+.why-context strong {
+  color: #b45309;
+}
+
+
+/* Klausur-Tipp: sattes Gelb, leicht kraeftiger als why-context */
+.tip-box {
+  background: #fef9c3;
+  border-left: 4px solid #ca8a04;
+  padding: 12px 16px;
+  margin: 16px 0;
+  border-radius: 4px;
+  line-height: 1.55;
+}
+
+
+.tip-box strong {
+  color: #854d0e;
+}
+
+
+/* Fallstrick / typischer Klausurfehler: Rot */
+.warning-box {
+  background: #fee2e2;
+  border-left: 4px solid #dc2626;
+  padding: 12px 16px;
+  margin: 16px 0;
+  border-radius: 4px;
+  line-height: 1.55;
+}
+
+
+.warning-box strong {
+  color: #991b1b;
+}
+
+
+#sidebar .lab-entry.active {
+  background: var(--accent-light);
+  border-style: solid;
+}
+
+
+.subnetting-viz .controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+
+.subnetting-viz .controls label {
+  font-weight: 600;
+}
+
+
+.subnetting-viz .controls select {
+  padding: 6px 12px;
+  font-size: 1rem;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  min-width: 80px;
+}
+
+
+.network-labeling .label-slot.assigned {
+  fill: var(--accent);
+}
+
+
+.network-labeling .label-text.assigned {
+  fill: white;
+}
+
+
+.subnet-exercise .field-row .field-feedback.correct {
+  color: var(--success);
+}
+
+
+/* ===================================================================
+ * Ergaenzungen fuer das Bio-Lernprogramm
+ * =================================================================== */
+
+/* --- Tabelle fuer Vergleiche --- */
+.icon-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.95rem;
+}
+
+.icon-table th,
+.icon-table td {
+  border: 1px solid #e5e7eb;
+  padding: 0.7rem 0.8rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.icon-table th {
+  background: #f9fafb;
+  font-weight: 600;
+}
+
+.icon-table tr:nth-child(even) td { background: #fcfcfd; }
+
+
+/* --- Grafik-Rahmen --- */
+.visual-figure {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.visual-caption {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.bio-svg,
+.cycle-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bio-label {
+  font-size: 15px;
+  font-weight: 600;
+  fill: #374151;
+}
+
+
+/* --- Anklickbare Teile einer Grafik --- */
+.clickable-part {
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.clickable-part:hover { opacity: 0.75; }
+
+.clickable-part.active {
+  stroke: #2563EB !important;
+  stroke-width: 6 !important;
+}
+
+.labeled-svg-info {
+  margin-top: 0.9rem;
+  padding: 0.85rem 1rem;
+  background: #f9fafb;
+  border-left: 4px solid #2563EB;
+  border-radius: 4px;
+  min-height: 3.2rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+
+/* --- Wortgleichung --- */
+.equation-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.equation-side {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.equation-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.6rem 0.8rem;
+  background: #fff;
+  border: 3px solid #9ca3af;
+  border-radius: 10px;
+  min-width: 78px;
+}
+
+.equation-icon { font-size: 1.6rem; line-height: 1; }
+
+.equation-name { font-size: 0.85rem; font-weight: 600; text-align: center; }
+
+.equation-plus { font-size: 1.3rem; color: #6b7280; font-weight: 700; }
+
+.equation-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0.4rem;
+}
+
+.arrow-over { font-size: 0.8rem; color: #f59e0b; font-weight: 700; }
+
+.arrow-line { font-size: 2rem; color: #374151; line-height: 1; }
+
+
+/* --- Faktoren-Simulation --- */
+.factor-sim {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.factor-row {
+  display: grid;
+  grid-template-columns: 130px 1fr 55px;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.9rem;
+}
+
+.factor-row label { font-weight: 600; font-size: 0.9rem; }
+
+.factor-slider { width: 100%; height: 30px; }
+
+.factor-value { font-size: 0.85rem; text-align: right; color: #6b7280; }
+
+.factor-output { text-align: center; }
+
+.factor-bar-outer {
+  width: 100%;
+  height: 34px;
+  background: #f3f4f6;
+  border-radius: 17px;
+  overflow: hidden;
+  margin: 0.6rem 0;
+}
+
+.factor-bar-inner {
+  height: 100%;
+  width: 60%;
+  border-radius: 17px;
+  transition: width 0.2s, background 0.2s;
+}
+
+.factor-rate-label { font-size: 1.5rem; font-weight: 700; }
+
+.factor-limit-label { font-size: 0.9rem; color: #6b7280; margin-top: 0.3rem; }
+
+
+/* --- Kreislauf --- */
+.cycle-title { font-size: 17px; font-weight: 700; fill: #111827; }
+
+.cycle-sub   { font-size: 14px; font-weight: 600; fill: #4b5563; }
+
+.cycle-small { font-size: 12px; fill: #6b7280; }
+
+.cycle-label { font-size: 14px; font-weight: 700; }
+
+.cycle-button {
+  display: block;
+  margin: 0.8rem auto 0;
+  min-height: 44px;
+  padding: 0 1.4rem;
+  background: #2563EB;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.cycle-button:disabled { background: #9ca3af; cursor: default; }
+
+
+/* --- Pruefen-Knopf (Lueckentext, Reihenfolge) --- */
+.check-button {
+  min-height: 44px;
+  padding: 0 1.5rem;
+  margin-top: 1rem;
+  background: #2563EB;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.check-button:disabled { background: #9ca3af; cursor: default; }
+
+
+/* --- Lueckentext --- */
+.blank-text { line-height: 2.4; font-size: 1rem; }
+
+.blank-input {
+  min-height: 40px;
+  padding: 0.3rem 0.6rem;
+  margin: 0 0.25rem;
+  border: 2px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 150px;
+}
+
+.blank-input.correct   { border-color: #16a34a; background: #f0fdf4; }
+
+.blank-input.incorrect { border-color: #dc2626; background: #fef2f2; }
+
+
+/* --- Reihenfolge --- */
+.ordering-list { list-style: decimal inside; padding: 0; margin: 1rem 0; }
+
+.ordering-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.7rem 0.9rem;
+  margin-bottom: 0.5rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.ordering-label { flex: 1; }
+
+.ordering-controls { display: flex; gap: 0.4rem; }
+
+.ordering-btn {
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.ordering-btn:disabled { opacity: 0.35; cursor: default; }
+
+
+/* --- Beschriftungs-Uebung --- */
+.labeling-terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.labeling-term {
+  min-height: 44px;
+  padding: 0 1rem;
+  background: #fff;
+  border: 2px solid #2563EB;
+  color: #2563EB;
+  border-radius: 22px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.labeling-term.selected { background: #2563EB; color: #fff; }
+
+.labeling-term:disabled {
+  border-color: #16a34a;
+  color: #16a34a;
+  background: #f0fdf4;
+  text-decoration: line-through;
+  cursor: default;
+}
+
+.labeling-figure { border: 1px solid #e5e7eb; border-radius: 10px; padding: 0.5rem; }
+
+.labeling-spot { cursor: pointer; }
+
+.spot-circle {
+  fill: #2563EB;
+  opacity: 0.85;
+  transition: r 0.2s;
+}
+
+.labeling-spot:hover .spot-circle { opacity: 1; }
+
+.spot-text {
+  font-size: 16px;
+  font-weight: 700;
+  fill: #fff;
+  pointer-events: none;
+}
+
+.spot-text.solved { fill: #15803d; font-size: 14px; }
+
+
+/* Kurzes Wackeln bei falscher Zuordnung */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25%      { transform: translateX(-4px); }
+  75%      { transform: translateX(4px); }
+}
+
+.labeling-spot.shake { animation: shake 0.4s; }
+
+
+/* --- Tablet / Handy --- */
+@media (max-width: 768px) {
+  .factor-sim { grid-template-columns: 1fr; }
+  .factor-row { grid-template-columns: 110px 1fr 45px; }
+  .equation-box { flex-direction: column; }
+  .equation-arrow { transform: rotate(90deg); }
+  .blank-input { width: 120px; }
+}
+
+
+/* Aufzaehlungen in den farbigen Boxen einruecken, sonst haengen die
+   Punkte ausserhalb der Box */
+.reading-guide ul,
+.analogy-box ul,
+.why-context ul,
+.warning-box ul,
+.tip-box ul {
+  padding-left: 1.4rem;
+  margin: 0.4rem 0 0;
+}
+
+
+/* Kleine Beschriftungen direkt in SVG-Grafiken */
+.svg-mini { font-size: 13px; font-weight: 600; }
+
+
+/* Chemische Formeln auf den Gleichungs-Kaertchen */
+.equation-icon {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.equation-icon sub { font-size: 0.7em; }
+
+
+/* Touch-Ziele auf mindestens 44px - Vorgabe fuer Bedienung per Finger.
+   Diese vier lagen darunter. */
+.exercise-check-btn { min-height: 44px; padding: 0 1.4rem; }
+.blank-input        { min-height: 44px; }
+.factor-slider      { height: 44px; }
+.menu-toggle        { min-width: 44px; min-height: 44px; }
