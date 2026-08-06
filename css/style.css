@@ -10,10 +10,6 @@
   --sidebar-bg: #F9FAFB;
   --border: #E5E7EB;
   --sidebar-width: 280px;
-  --signal-high: #16A34A;
-  --signal-low: #4B5563;
-  --signal-carry: #F59E0B;
-  --signal-active: #2563EB;
 }
 
 
@@ -110,12 +106,6 @@ body {
 
 #sidebar li.not-started {
   color: var(--text-light);
-}
-
-
-#sidebar li.active .exam-icon,
-#sidebar li.completed .exam-icon {
-  color: inherit;
 }
 
 
@@ -368,18 +358,6 @@ p {
 }
 
 
-.truth-table .result-col.correct {
-  background: #DCFCE7;
-  color: #166534;
-}
-
-
-.truth-table .result-col.incorrect {
-  background: #FEF2F2;
-  color: #991B1B;
-}
-
-
 .exercise-check-btn {
   margin-top: 1rem;
   padding: 0.6rem 1.5rem;
@@ -444,18 +422,6 @@ p {
 }
 
 
-.binary-input.correct {
-  border-color: var(--success);
-  background: #DCFCE7;
-}
-
-
-.binary-input.incorrect {
-  border-color: var(--error);
-  background: #FEF2F2;
-}
-
-
 /* === Responsive: Tablet (< 1024px) === */
 @media (max-width: 1024px) {
   body {
@@ -487,20 +453,11 @@ p {
 }
 
 
-@media (min-width: 1025px) {
-  .menu-toggle {
-    display: none;
-  }
-
-
-}
-
-
 /* Hamburger-Knopf. Sichtbar ist er nur auf schmalen Bildschirmen - das
-   regelt die Media-Query weiter oben (min-width: 1025px -> display:none).
-   Hier KEIN display:none setzen: Diese Regel steht spaeter in der Datei und
-   wuerde die Media-Query ueberschreiben, weil beide gleich spezifisch sind.
-   Der Knopf waere dann auf jedem Geraet unsichtbar. */
+   regelt die Media-Query ganz am DATEIENDE (min-width: 1025px -> display:none).
+   Hier KEIN display:none setzen: Diese Regel steht spaeter in der Datei als
+   jede Media-Query weiter oben und wuerde sie ueberschreiben, weil beide
+   gleich spezifisch sind. Der Knopf waere dann auf jedem Geraet unsichtbar. */
 .menu-toggle {
   position: fixed;
   top: 1rem;
@@ -593,50 +550,6 @@ p {
 
 .warning-box strong {
   color: #991b1b;
-}
-
-
-#sidebar .lab-entry.active {
-  background: var(--accent-light);
-  border-style: solid;
-}
-
-
-.subnetting-viz .controls {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-}
-
-
-.subnetting-viz .controls label {
-  font-weight: 600;
-}
-
-
-.subnetting-viz .controls select {
-  padding: 6px 12px;
-  font-size: 1rem;
-  border: 2px solid var(--border);
-  border-radius: 4px;
-  min-width: 80px;
-}
-
-
-.network-labeling .label-slot.assigned {
-  fill: var(--accent);
-}
-
-
-.network-labeling .label-text.assigned {
-  fill: white;
-}
-
-
-.subnet-exercise .field-row .field-feedback.correct {
-  color: var(--success);
 }
 
 

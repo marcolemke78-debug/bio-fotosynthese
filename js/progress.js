@@ -40,9 +40,18 @@ const Progress = {
     }
   },
 
-  // Aktuellen Zustand in localStorage schreiben
+  // Aktuellen Zustand in localStorage schreiben.
+  // setItem kann werfen: Safari-Privatmodus, voller Speicher, Storage gesperrt.
+  // Das darf die App nicht anhalten - ohne Speicher laeuft das Programm normal
+  // weiter, nur der Fortschritt ueberlebt das Schliessen des Tabs nicht.
+  // Ohne dieses try/catch wuerde stattdessen der ausloesende Klick-Handler
+  // abbrechen (z.B. "Lektion abschliessen" reagiert dann gar nicht mehr).
   save(data) {
-    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(data));
+    try {
+      localStorage.setItem(this.STORAGE_KEY, JSON.stringify(data));
+    } catch (e) {
+      console.warn('Fortschritt konnte nicht gespeichert werden:', e);
+    }
   },
 
   // Status einer Lektion abfragen: 'not_started' | 'in_progress' | 'completed'

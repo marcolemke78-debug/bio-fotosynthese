@@ -1,7 +1,3 @@
-// Kleines Inline-SVG des Klemmbrett-Symbols aus den KOIN-Uebungs-PDFs
-// ("Moegliche Klausuraufgabe"). Wird in Sidebar und Lektions-Header verwendet.
-
-
 const Renderer = {
 
   /**

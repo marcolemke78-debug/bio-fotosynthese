@@ -180,17 +180,17 @@ const LessonsFoto = [
           Es gibt ein <em>Büro</em>, das alles steuert (der Zellkern). Es gibt ein
           <em>Lager</em> (die Vakuole). Es gibt eine <em>Mauer</em> drumherum
           (die Zellwand). Und es gibt zwei ganz besondere <em>Maschinen</em>:
-          eine, die Energie <strong>einf&auml;ngt und speichert</strong>, und eine,
+          eine, die Energie <strong>einfängt und speichert</strong>, und eine,
           die sie <strong>wieder freisetzt</strong>.
           <br><br>
-          Denk an einen Akku: Die eine Maschine <em>l&auml;dt</em> ihn auf, die andere
-          <em>entl&auml;dt</em> ihn wieder und macht daraus Bewegung und W&auml;rme.
+          Denk an einen Akku: Die eine Maschine <em>lädt</em> ihn auf, die andere
+          <em>entlädt</em> ihn wieder und macht daraus Bewegung und Wärme.
           Genau um diese beiden geht es im ganzen Lernprogramm.
         </div>
 
         <h3>Die zwei wichtigen Maschinen</h3>
         <p>Die einzelnen Bauteile einer Zelle nennt man <strong>Zellorganellen</strong>
-        &ndash; das sind sozusagen die Maschinen und R&auml;ume der Zellfabrik.</p>
+        &ndash; das sind sozusagen die Maschinen und Räume der Zellfabrik.</p>
 
         <table class="icon-table">
           <tr>
@@ -201,7 +201,7 @@ const LessonsFoto = [
           <tr>
             <td><strong>Chloroplast</strong> (grün)</td>
             <td>Solaranlage</td>
-            <td>F&auml;ngt Sonnenlicht ein und baut <strong>mit dieser Energie</strong>
+            <td>Fängt Sonnenlicht ein und baut <strong>mit dieser Energie</strong>
                 aus Kohlenstoffdioxid und Wasser Zucker. Das ist die
                 <strong>Fotosynthese</strong>.</td>
           </tr>
@@ -228,9 +228,9 @@ const LessonsFoto = [
         <p>Neben dem Chloroplasten haben Pflanzenzellen noch zwei Dinge, die
         tierischen Zellen fehlen:</p>
         <ul>
-          <li><strong>Zellwand</strong> &ndash; eine feste H&uuml;lle au&szlig;en herum. Sie gibt
-          der Zelle ihre Form. Zusammen mit dem Wasserdruck von innen h&auml;lt sie
-          die Pflanze aufrecht &ndash; deshalb ist ein Blatt stabil und ein St&uuml;ck
+          <li><strong>Zellwand</strong> &ndash; eine feste Hülle außen herum. Sie gibt
+          der Zelle ihre Form. Zusammen mit dem Wasserdruck von innen hält sie
+          die Pflanze aufrecht &ndash; deshalb ist ein Blatt stabil und ein Stück
           Haut nicht.</li>
           <li><strong>Vakuole</strong> &ndash; ein großer Wasserspeicher. Ist sie
           prall gefüllt, steht die Pflanze aufrecht. Fehlt Wasser, wird sie
@@ -387,11 +387,11 @@ const LessonsFoto = [
         <div class="tip-box">
           <strong>Merksatz:</strong> Kohlenstoffdioxid + Wasser
           &rarr; Traubenzucker + Sauerstoff.<br>
-          &Uuml;ber dem Pfeil steht, was es zus&auml;tzlich braucht:
+          Über dem Pfeil steht, was es zusätzlich braucht:
           <strong>Licht</strong> und <strong>Chlorophyll</strong>.
-          Chlorophyll ist der gr&uuml;ne Farbstoff im Chloroplasten &ndash; er f&auml;ngt
+          Chlorophyll ist der grüne Farbstoff im Chloroplasten &ndash; er fängt
           das Licht ein. Ohne diese beiden passiert gar nichts.
-          (Und weil dieser Farbstoff gr&uuml;n ist, sind Bl&auml;tter gr&uuml;n.)
+          (Und weil dieser Farbstoff grün ist, sind Blätter grün.)
         </div>
 
         <h3>Woher kommt was?</h3>
@@ -402,8 +402,8 @@ const LessonsFoto = [
           </tr>
           <tr>
             <td>Kohlenstoffdioxid (CO<sub>2</sub>)</td>
-            <td>Kommt aus der Luft. Es gelangt durch winzige L&ouml;cher an der
-                Blattunterseite ins Blatt &ndash; sie hei&szlig;en <em>Spalt&ouml;ffnungen</em>,
+            <td>Kommt aus der Luft. Es gelangt durch winzige Löcher an der
+                Blattunterseite ins Blatt &ndash; sie heißen <em>Spaltöffnungen</em>,
                 mehr dazu in Lektion 3.</td>
           </tr>
           <tr>
@@ -414,7 +414,7 @@ const LessonsFoto = [
           <tr>
             <td>Traubenzucker (Glucose)</td>
             <td>Bleibt in der Pflanze. Sie baut daraus alles auf, was sie zum
-                Wachsen braucht &ndash; und speichert Vorr&auml;te, zum Beispiel als St&auml;rke &ndash; das ist die Speicherform
+                Wachsen braucht &ndash; und speichert Vorräte, zum Beispiel als Stärke &ndash; das ist die Speicherform
                 von Zucker, wie in einer Kartoffel.</td>
           </tr>
           <tr>
@@ -442,9 +442,9 @@ const LessonsFoto = [
           <strong>So liest du die Gleichung unten:</strong>
           <ul>
             <li>Links steht, was hineingeht. Rechts, was herauskommt.
-            &Uuml;ber dem Pfeil, was zus&auml;tzlich n&ouml;tig ist.</li>
-            <li>Die kleinen Formeln auf den K&auml;rtchen (CO<sub>2</sub>, H<sub>2</sub>O ...)
-            <strong>musst du nicht auswendig k&ouml;nnen</strong>. Die Namen reichen.</li>
+            Über dem Pfeil, was zusätzlich nötig ist.</li>
+            <li>Die kleinen Formeln auf den Kärtchen (CO<sub>2</sub>, H<sub>2</sub>O ...)
+            <strong>musst du nicht auswendig können</strong>. Die Namen reichen.</li>
             <li>Die 6 vor den Formeln bedeutet: Es werden jeweils sechs Teilchen
             gebraucht, damit die Rechnung aufgeht.</li>
           </ul>
@@ -484,8 +484,8 @@ const LessonsFoto = [
         },
         {
           label: 'Die richtige Antwort',
-          html: `<p>Das Material kommt zum gr&ouml;&szlig;ten Teil <strong>aus der Luft</strong>
-                 (genauer: das Trockengewicht &ndash; frisches Holz enth&auml;lt zus&auml;tzlich
+          html: `<p>Das Material kommt zum größten Teil <strong>aus der Luft</strong>
+                 (genauer: das Trockengewicht &ndash; frisches Holz enthält zusätzlich
                  viel Wasser).
                  Genauer: aus dem Kohlenstoffdioxid. Der Kohlenstoff daraus wird
                  zu Zucker verarbeitet, und aus Zucker baut die Pflanze Holz.</p>`
@@ -570,7 +570,7 @@ const LessonsFoto = [
           Maschinen angeschaut. Jetzt kommt die Halle drumherum.
           Oben ein <em>Dach</em>, das vor Regen schützt (die Wachsschicht).
           Ganz oben unter dem Dach der <em>Maschinenraum</em>, wo das Licht
-          hinkommt (das Palisadengewebe). Darunter breite <em>L&uuml;ftungsg&auml;nge</em>,
+          hinkommt (das Palisadengewebe). Darunter breite <em>Lüftungsgänge</em>,
           damit die Luft zu jeder Maschine kommt (das Schwammgewebe).
           Und unten <em>Tore</em>, die sich öffnen und schließen lassen
           (die Spaltöffnungen).
@@ -590,7 +590,7 @@ const LessonsFoto = [
           <tr>
             <td><strong>Obere Haut</strong> (Epidermis)</td>
             <td>Durchsichtige Schutzschicht &ndash; wie eine Fensterscheibe.
-                Sie l&auml;sst das Licht durch und hat selbst keine Chloroplasten.</td>
+                Sie lässt das Licht durch und hat selbst keine Chloroplasten.</td>
           </tr>
           <tr>
             <td><strong>Palisadengewebe</strong></td>
@@ -612,10 +612,10 @@ const LessonsFoto = [
         </table>
 
         <h3>Warum sitzen die Tore unten?</h3>
-        <p>Bei den meisten Laubbl&auml;ttern liegen die Spalt&ouml;ffnungen an der
+        <p>Bei den meisten Laubblättern liegen die Spaltöffnungen an der
         <strong>Unterseite</strong>. Der Grund: Oben knallt die Sonne drauf &ndash;
-        dort w&uuml;rde viel zu viel Wasser verdunsten. (Gr&auml;ser haben sie
-        &uuml;brigens auf beiden Seiten.)</p>
+        dort würde viel zu viel Wasser verdunsten. (Gräser haben sie
+        übrigens auf beiden Seiten.)</p>
 
         <div class="tip-box">
           <strong>So funktionieren die Schließzellen:</strong> Zwei bohnenförmige
@@ -627,8 +627,8 @@ const LessonsFoto = [
         </div>
 
         <div class="warning-box">
-          <strong>Der Haken dabei:</strong> Wenn es hei&szlig; wird, schlie&szlig;t die Pflanze
-          ihre Spalt&ouml;ffnungen. So spart sie Wasser. Aber dann kommt auch kein
+          <strong>Der Haken dabei:</strong> Wenn es heiß wird, schließt die Pflanze
+          ihre Spaltöffnungen. So spart sie Wasser. Aber dann kommt auch kein
           Kohlenstoffdioxid mehr herein &ndash; und die Fotosynthese steht still.
           Die Pflanze muss also ständig abwägen: Wasser sparen oder Zucker
           herstellen. Beides gleichzeitig geht nicht.
@@ -804,29 +804,29 @@ const LessonsFoto = [
           <tr>
             <td><strong>Wasser</strong></td>
             <td>Bei Trockenheit. Wasser ist gleich doppelt wichtig: als Rohstoff
-                und um die Spalt&ouml;ffnungen offen zu halten.</td>
+                und um die Spaltöffnungen offen zu halten.</td>
           </tr>
           <tr>
             <td><strong>Temperatur</strong></td>
-            <td>Bei K&auml;lte laufen alle Vorg&auml;nge in der Zelle langsam, bei gro&szlig;er
+            <td>Bei Kälte laufen alle Vorgänge in der Zelle langsam, bei großer
                 Hitze gehen sie kaputt. Am besten arbeitet die Fotosynthese bei
                 etwa 20 bis 30 Grad.</td>
           </tr>
         </table>
 
         <p>Die Temperatur ist kein Lieferant &ndash; sie ist das <em>Arbeitstempo in
-        der Halle</em>. Bei K&auml;lte arbeiten alle in Zeitlupe, bei gro&szlig;er Hitze
+        der Halle</em>. Bei Kälte arbeiten alle in Zeitlupe, bei großer Hitze
         gehen die Maschinen kaputt. Deshalb steht sie in der Tabelle mit dabei,
         obwohl sie kein Rohstoff ist.</p>
 
         <div class="tip-box">
           <strong>So beantwortest du solche Aufgaben:</strong> Frage dich immer
           zuerst: <em>Welcher Faktor ist hier der knappste?</em> Nur dieser eine
-          bestimmt die Geschwindigkeit. Alle anderen zu erh&ouml;hen bringt nichts,
+          bestimmt die Geschwindigkeit. Alle anderen zu erhöhen bringt nichts,
           solange der knappste nicht steigt.
           <br><br>
-          <em>Kleine Einschr&auml;nkung:</em> Das ist ein vereinfachtes Modell. In
-          Wirklichkeit wirken oft zwei Faktoren zusammen. F&uuml;r die Schule reicht
+          <em>Kleine Einschränkung:</em> Das ist ein vereinfachtes Modell. In
+          Wirklichkeit wirken oft zwei Faktoren zusammen. Für die Schule reicht
           die Regel: Der knappste Faktor bestimmt das Tempo.
         </div>
 
@@ -849,8 +849,8 @@ const LessonsFoto = [
           <strong>So benutzt du den Regler unten:</strong>
           <ul>
             <li>Schieb die drei Regler auf verschiedene Werte.
-            100 % hei&szlig;t: so viel, wie die Pflanze von diesem Stoff
-            h&ouml;chstens verwerten kann.</li>
+            100 % heißt: so viel, wie die Pflanze von diesem Stoff
+            höchstens verwerten kann.</li>
             <li>Achte auf den Balken: Er richtet sich immer nach dem
             <strong>kleinsten</strong> Regler, nie nach dem größten.</li>
             <li>Probier es aus: Stell Licht auf 20 und alles andere auf 100.
@@ -888,8 +888,8 @@ const LessonsFoto = [
         },
         {
           label: 'Schritt 3: Was hilft, was nicht?',
-          html: `<p>Noch mehr heizen bringt nichts. Noch mehr d&uuml;ngen bringt auch
-                 nichts &ndash; zu viel D&uuml;nger im Boden zieht der Wurzel sogar Wasser
+          html: `<p>Noch mehr heizen bringt nichts. Noch mehr düngen bringt auch
+                 nichts &ndash; zu viel Dünger im Boden zieht der Wurzel sogar Wasser
                  weg. Es hilft nur eines: <strong>Pflanzenlampen</strong>.</p>`
         },
         {
@@ -994,8 +994,8 @@ const LessonsFoto = [
           <br><br>
           Wenn du eine Gleichung kannst, kannst du die andere auch.
           <br><br>
-          <em>Aber Achtung:</em> Es ist nicht derselbe Vorgang r&uuml;ckw&auml;rts. Beide
-          laufen in verschiedenen Zellteilen und &uuml;ber ganz verschiedene Schritte
+          <em>Aber Achtung:</em> Es ist nicht derselbe Vorgang rückwärts. Beide
+          laufen in verschiedenen Zellteilen und über ganz verschiedene Schritte
           ab. Nur die Bilanz &ndash; was rein und was raus geht &ndash; ist umgekehrt.
         </div>
 
@@ -1011,9 +1011,9 @@ const LessonsFoto = [
           <strong>Der wichtigste Punkt der ganzen Lektion:</strong> Auch
           <strong>Pflanzen</strong> betreiben Zellatmung! Und zwar Tag und Nacht.
           <br><br>
-          Tags&uuml;ber l&auml;uft beides gleichzeitig: Die Pflanze macht Fotosynthese
-          <em>und</em> atmet. Bei ausreichend Licht l&auml;uft die Fotosynthese viel
-          st&auml;rker &ndash; deshalb gibt die Pflanze unterm Strich Sauerstoff ab. Nachts fällt die Fotosynthese weg &ndash; dann
+          Tagsüber läuft beides gleichzeitig: Die Pflanze macht Fotosynthese
+          <em>und</em> atmet. Bei ausreichend Licht läuft die Fotosynthese viel
+          stärker &ndash; deshalb gibt die Pflanze unterm Strich Sauerstoff ab. Nachts fällt die Fotosynthese weg &ndash; dann
           verbraucht die Pflanze Sauerstoff, genau wie du.
         </div>
 
@@ -1175,7 +1175,7 @@ const LessonsFoto = [
             <td>Eine Kerze allein unter der Glocke</td>
             <td>Die Flamme erlosch, ebenfalls aus Sauerstoffmangel. (Eine Kerze
                 geht schon aus, wenn noch reichlich Sauerstoff da ist &ndash; ihr
-                gen&uuml;gt der Rest nur nicht mehr.)</td>
+                genügt der Rest nur nicht mehr.)</td>
           </tr>
           <tr>
             <td>Eine Pflanze <strong>zusammen</strong> mit der Maus unter der Glocke</td>
@@ -1190,7 +1190,7 @@ const LessonsFoto = [
           Pflanze der Maus überhaupt nicht &ndash; im Gegenteil, sie verbraucht dann
           selbst Sauerstoff. Genau das hatte Priestley anfangs nicht verstanden,
           weshalb seine Versuche mal klappten und mal nicht. Erst der Arzt
-          Jan Ingenhousz fand einige Jahre sp&auml;ter heraus, dass es am Licht liegt.
+          Jan Ingenhousz fand einige Jahre später heraus, dass es am Licht liegt.
         </div>
 
         <h3>Beide Gleichungen nebeneinander</h3>
@@ -1248,7 +1248,7 @@ const LessonsFoto = [
             <li>Drück auf den Knopf: Die grüne Kugel ist der Sauerstoff, der zur
             Tierseite wandert. Die rote ist das Kohlenstoffdioxid auf dem Rückweg.</li>
             <li>Beide Wege laufen gleichzeitig &ndash; deshalb bleibt die
-            Zusammensetzung der Luft &uuml;ber Jahre stabil.</li>
+            Zusammensetzung der Luft über Jahre stabil.</li>
           </ul>
         </div>
       `,
@@ -1284,8 +1284,8 @@ const LessonsFoto = [
           label: 'Schritt 3: Der Kreislauf schließt sich',
           html: `<p>Was die Fische abgeben, brauchen die Pflanzen. Was die Pflanzen
                  abgeben, brauchen die Fische. Das Aquarium versorgt sich
-                 weitgehend selbst &ndash; ein Teil des Sauerstoffs kommt zus&auml;tzlich
-                 &uuml;ber die Wasseroberfl&auml;che aus der Luft.</p>`
+                 weitgehend selbst &ndash; ein Teil des Sauerstoffs kommt zusätzlich
+                 über die Wasseroberfläche aus der Luft.</p>`
         },
         {
           label: 'Schritt 4: Und nachts?',
