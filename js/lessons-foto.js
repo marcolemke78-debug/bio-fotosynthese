@@ -1033,11 +1033,11 @@ const LessonsFoto = [
           over: 'im Mitochondrium',
           left: [
             { name: 'Trauben&shy;zucker', icon: 'C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>', color: '#f59e0b' },
-            { name: 'Sauerstoff', icon: 'O<sub>2</sub>', color: '#16a34a' }
+            { name: 'Sauerstoff', icon: '6 O<sub>2</sub>', color: '#16a34a' }
           ],
           right: [
-            { name: 'Kohlenstoff&shy;dioxid', icon: 'CO<sub>2</sub>', color: '#6b7280' },
-            { name: 'Wasser', icon: 'H<sub>2</sub>O', color: '#3b82f6' },
+            { name: 'Kohlenstoff&shy;dioxid', icon: '6 CO<sub>2</sub>', color: '#6b7280' },
+            { name: 'Wasser', icon: '6 H<sub>2</sub>O', color: '#3b82f6' },
             { name: 'Energie', icon: '&#9889;', color: '#dc2626' }
           ]
         }
