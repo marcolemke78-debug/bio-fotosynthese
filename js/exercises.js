@@ -37,7 +37,9 @@ const Exercises = {
    * - Richtig: Button gruen, Erklaerung anzeigen, alle Buttons sperren, onComplete()
    * - Falsch: Button rot + gesperrt, Fehlermeldung anzeigen, weiter probieren
    *
-   * @param {Object} exercise - { type, question, options, correct, explanation }
+   * @param {Object} exercise - { type, question, options, correct, explanation,
+   *   wrongExplanations? } - wrongExplanations: optionales Objekt
+   *   { Original-Index der falschen Option: Erklaerungstext }
    * @param {HTMLElement} container - DOM-Element in das gerendert wird
    * @param {Function} onComplete - Callback wenn richtige Antwort gewaehlt
    */
@@ -104,8 +106,22 @@ const Exercises = {
           button.classList.add('incorrect');
           button.disabled = true;
 
-          // Fehlermeldung anzeigen
-          feedbackEl.textContent = 'Leider falsch. Versuch es nochmal!';
+          // Elaboriertes Feedback: zu jeder falschen Option gibt es eine eigene
+          // Erklaerung, die den dahinterliegenden Denkfehler aufgreift.
+          // ACHTUNG: wrongExplanations ist nach dem ORIGINAL-Index der Option
+          // verschluesselt, `index` ist aber die Anzeigeposition nach dem
+          // Mischen. Deshalb order[index] - mit [index] bekaeme man die
+          // Erklaerung zu einer voellig anderen Option. Nicht "vereinfachen"!
+          const originalIndex = order[index];
+          const specific = exercise.wrongExplanations
+            ? exercise.wrongExplanations[originalIndex]
+            : undefined;
+
+          // Der Hinweis auf den naechsten Versuch haengt immer dran, sonst
+          // wirkt die Erklaerung wie ein Schlusswort und die Uebung wie vorbei.
+          feedbackEl.textContent = specific
+            ? specific + ' Versuch es nochmal!'
+            : 'Leider falsch. Versuch es nochmal!';
           feedbackEl.className = 'exercise-feedback incorrect';
           feedbackEl.style.display = 'block';
         }

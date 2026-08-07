@@ -311,7 +311,12 @@ const LessonsFoto = [
         question: 'In welchem Zellteil findet die Fotosynthese statt?',
         options: ['Im Mitochondrium', 'Im Chloroplast', 'Im Zellkern', 'In der Vakuole'],
         correct: 1,
-        explanation: 'Richtig! Der Chloroplast ist die Solaranlage der Zelle. Er enthält den grünen Farbstoff Chlorophyll, der das Sonnenlicht einfängt.'
+        explanation: 'Richtig! Der Chloroplast ist die Solaranlage der Zelle. Er enthält den grünen Farbstoff Chlorophyll, der das Sonnenlicht einfängt.',
+        wrongExplanations: {
+          0: 'Das Mitochondrium hat auch mit Energie zu tun, deshalb liegt die Antwort nahe. Aber es ist das Kraftwerk: Es verbrennt Zucker. Der Chloroplast ist die Solaranlage, die Zucker erst herstellt.',
+          2: 'Der Zellkern ist das Büro der Zellfabrik. Er steuert und verwaltet, aber gearbeitet wird in den Maschinen.',
+          3: 'Die Vakuole ist das Lager. Dort wird aufbewahrt, nicht produziert.'
+        }
       },
       {
         type: 'multiple-choice',
@@ -323,7 +328,12 @@ const LessonsFoto = [
           'Mitochondrien sitzen im Zellkern und steuern die Zelle.'
         ],
         correct: 2,
-        explanation: 'Genau. Beide brauchen ein Kraftwerk, denn beide müssen Zucker in Energie umwandeln. Eine Pflanze tut das auch nachts, wenn keine Fotosynthese läuft.'
+        explanation: 'Genau. Beide brauchen ein Kraftwerk, denn beide müssen Zucker in Energie umwandeln. Eine Pflanze tut das auch nachts, wenn keine Fotosynthese läuft.',
+        wrongExplanations: {
+          0: 'Das ist der häufigste Denkfehler bei diesem Thema. Pflanzen stellen Zucker zwar selbst her, aber sie müssen ihn genauso verbrennen wie ein Tier, um an die Energie zu kommen. Ohne Mitochondrien ginge das nicht.',
+          1: 'Genau andersherum gedacht. Mitochondrien haben alle Lebewesen. Was den Tieren fehlt, ist der Chloroplast.',
+          3: 'Hier sind zwei Zellteile vertauscht. Mitochondrien liegen frei in der Zelle und liefern Energie. Gesteuert wird die Zelle vom Zellkern, dem Büro.'
+        }
       },
       {
         type: 'matching',
@@ -522,7 +532,12 @@ const LessonsFoto = [
           'Mineralstoffe aus dem Boden'
         ],
         correct: 1,
-        explanation: 'Genau. Ohne Licht läuft nichts, und ohne den grünen Farbstoff Chlorophyll kann das Licht gar nicht eingefangen werden.'
+        explanation: 'Genau. Ohne Licht läuft nichts, und ohne den grünen Farbstoff Chlorophyll kann das Licht gar nicht eingefangen werden.',
+        wrongExplanations: {
+          0: 'Wärme beeinflusst zwar das Tempo der Fotosynthese, treibt sie aber nicht an. Und aus der Erde kommen Mineralstoffe, die in der Gleichung gar nicht vorkommen.',
+          2: 'Beide Stoffe kommen vor, aber auf den falschen Seiten: Wasser ist Ausgangsstoff und steht links, Sauerstoff ist Produkt und steht rechts. Über dem Pfeil steht nur, was gebraucht, aber nicht verbraucht wird.',
+          3: 'Mineralstoffe braucht die Pflanze zum Wachsen, zum Beispiel für das Chlorophyll. In der Fotosynthese-Gleichung selbst tauchen sie aber nicht auf.'
+        }
       },
       {
         type: 'multiple-choice',
@@ -534,7 +549,12 @@ const LessonsFoto = [
           'Aus dem Sonnenlicht, das im Holz gespeichert wird'
         ],
         correct: 2,
-        explanation: 'Richtig - und das überrascht die meisten. Ein Baum baut sich zum größten Teil aus Luft auf. Das Sonnenlicht liefert nur die Energie dazu, kein Material.'
+        explanation: 'Richtig - und das überrascht die meisten. Ein Baum baut sich zum größten Teil aus Luft auf. Das Sonnenlicht liefert nur die Energie dazu, kein Material.',
+        wrongExplanations: {
+          0: 'Das ist die häufigste Antwort überhaupt, und sie klingt logisch: Der Baum steht ja in der Erde. Nur wiegt der Boden nach Jahren kaum weniger. Er liefert Mineralstoffe, aber fast kein Baumaterial.',
+          1: 'Wasser wird tatsächlich gebraucht, es liefert aber Wasserstoff und Sauerstoff. Kohlenstoff steckt nicht darin. Der Name verrät, wo er herkommt: Kohlenstoffdioxid.',
+          3: 'Licht liefert die Energie für den Bau, aber kein Material. Energie kann man nicht als Holz stapeln, so wie man Strom nicht als Ziegelstein lagern kann.'
+        }
       },
       {
         type: 'matching',
@@ -718,7 +738,12 @@ const LessonsFoto = [
         question: 'In welcher Schicht läuft der größte Teil der Fotosynthese ab?',
         options: ['In der Wachsschicht', 'In der oberen Haut', 'Im Palisadengewebe', 'Im Schwammgewebe'],
         correct: 2,
-        explanation: 'Richtig! Im Palisadengewebe stecken die meisten Chloroplasten. Es liegt direkt unter der durchsichtigen oberen Haut - dort kommt am meisten Licht an.'
+        explanation: 'Richtig! Im Palisadengewebe stecken die meisten Chloroplasten. Es liegt direkt unter der durchsichtigen oberen Haut - dort kommt am meisten Licht an.',
+        wrongExplanations: {
+          0: 'Die Wachsschicht ist der wasserdichte Überzug ganz außen, quasi das Dach der Fabrik. Chloroplasten stecken dort keine drin.',
+          1: 'Die obere Haut ist durchsichtig wie eine Fensterscheibe, damit das Licht überhaupt hineinkommt. Genau deshalb hat sie selbst keine Chloroplasten.',
+          3: 'Im Schwammgewebe stecken zwar auch Chloroplasten, aber deutlich weniger. Seine Hauptaufgabe sind die Lüftungsgänge, durch die das Kohlenstoffdioxid zu jeder Zelle kommt.'
+        }
       },
       {
         type: 'multiple-choice',
@@ -730,7 +755,12 @@ const LessonsFoto = [
           'Weil sie sonst vom Regen verstopft würden'
         ],
         correct: 1,
-        explanation: 'Genau. Auf der sonnigen Oberseite würde durch die Öffnungen viel zu viel Wasser verdunsten. Unten ist es kühler und schattiger.'
+        explanation: 'Genau. Auf der sonnigen Oberseite würde durch die Öffnungen viel zu viel Wasser verdunsten. Unten ist es kühler und schattiger.',
+        wrongExplanations: {
+          0: 'Kohlenstoffdioxid ist in der Luft überall gleich verteilt, oben wie unten. Daran kann es also nicht liegen.',
+          2: 'Licht schadet den Spaltöffnungen nicht. Ob sie offen oder geschlossen sind, hängt am Wasserdruck in den Schließzellen, nicht am Licht.',
+          3: 'Klingt praktisch, ist aber nicht der Grund. Regen perlt auf der Wachsschicht ohnehin ab, ohne die Öffnungen zu verstopfen.'
+        }
       },
       {
         type: 'ordering',
@@ -755,7 +785,12 @@ const LessonsFoto = [
           'Sie stoppt, weil dem Blatt ohne Wasserzufuhr die Rohstoffe fehlen'
         ],
         correct: 2,
-        explanation: 'Richtig - und das ist der Zwiespalt der Pflanze. Sie schließt die Tore, um Wasser zu sparen. Damit sperrt sie aber gleichzeitig den Rohstoff CO2 aus. Licht allein nützt dann nichts.'
+        explanation: 'Richtig - und das ist der Zwiespalt der Pflanze. Sie schließt die Tore, um Wasser zu sparen. Damit sperrt sie aber gleichzeitig den Rohstoff CO2 aus. Licht allein nützt dann nichts.',
+        wrongExplanations: {
+          0: 'Hitze bringt nicht mehr Licht mit sich. Und selbst wenn mehr Licht da wäre, nützte es nichts, solange der Rohstoff fehlt.',
+          1: 'Licht ist tatsächlich reichlich da, das stimmt. Aber nicht der Stoff, von dem am meisten vorhanden ist, bestimmt das Tempo, sondern der, der gerade fehlt. Und das ist hier das Kohlenstoffdioxid.',
+          3: 'Der Gedanke ist nah dran, trifft aber das falsche Problem. Wasser hat das Blatt noch, es spart es ja gerade. Fehlen tut das Kohlenstoffdioxid. Und die Fotosynthese stoppt nicht, sie wird nur langsamer.'
+        }
       }
     ]
   },
@@ -913,7 +948,12 @@ const LessonsFoto = [
           'Sie bleibt gleich, dafür verbraucht die Pflanze deutlich mehr Wasser'
         ],
         correct: 1,
-        explanation: 'Richtig. Der knappste Faktor ist Kohlenstoffdioxid mit 30 %. Solange der nicht steigt, bringt mehr Licht nichts - wie mehr Bleche, wenn die Schrauben fehlen.'
+        explanation: 'Richtig. Der knappste Faktor ist Kohlenstoffdioxid mit 30 %. Solange der nicht steigt, bringt mehr Licht nichts - wie mehr Bleche, wenn die Schrauben fehlen.',
+        wrongExplanations: {
+          0: 'Der Gedanke liegt nahe: mehr Energie, mehr Leistung. Aber ein Faktor kann nur wirken, wenn die anderen mitkommen. Bei 30 Prozent Kohlenstoffdioxid liegt die Grenze woanders, wie mehr Bleche, wenn die Schrauben fehlen.',
+          2: 'In der Natur kann sehr starkes Licht Blätter tatsächlich schädigen. Hier bedeutet 100 Prozent aber nur: so viel Licht, wie die Pflanze überhaupt verwerten kann. Ein Schaden ist damit nicht gemeint.',
+          3: 'Wie viel Wasser verdunstet, hängt an den Spaltöffnungen und an der Temperatur, nicht direkt an der Lichtmenge.'
+        }
       },
       {
         type: 'multiple-choice',
@@ -925,7 +965,12 @@ const LessonsFoto = [
           'Weil es das Chlorophyll grün färbt und die Zellwand aufbaut'
         ],
         correct: 1,
-        explanation: 'Genau. Wasser ist einerseits Rohstoff in der Gleichung. Andererseits halten prall gefüllte Schließzellen die Spaltöffnungen offen - ohne Wasser schließen sie und das CO2 bleibt draußen.'
+        explanation: 'Genau. Wasser ist einerseits Rohstoff in der Gleichung. Andererseits halten prall gefüllte Schließzellen die Spaltöffnungen offen - ohne Wasser schließen sie und das CO2 bleibt draußen.',
+        wrongExplanations: {
+          0: 'Beides stimmt sogar, das macht diese Antwort so verlockend. Nur sind es nicht die zwei Rollen in der Fotosynthese selbst. Gefragt war, was Wasser für die Fotosynthese tut, nicht für die Pflanze allgemein.',
+          2: 'Wasser bündelt kein Licht. Mineralstoffe transportiert es wirklich, aber die stehen nicht in der Fotosynthese-Gleichung.',
+          3: 'Chlorophyll ist von sich aus grün, Wasser färbt es nicht. Und die Zellwand baut die Pflanze aus Zucker auf, nicht aus Wasser.'
+        }
       },
       {
         type: 'fill-in-blank',
@@ -947,7 +992,12 @@ const LessonsFoto = [
           'Das Kohlenstoffdioxid'
         ],
         correct: 2,
-        explanation: 'Richtig. Licht und Wasser sind ausreichend da. Bei 4 Grad laufen aber alle Vorgänge in der Zelle extrem langsam. Die Fotosynthese arbeitet am besten zwischen 20 und 30 Grad.'
+        explanation: 'Richtig. Licht und Wasser sind ausreichend da. Bei 4 Grad laufen aber alle Vorgänge in der Zelle extrem langsam. Die Fotosynthese arbeitet am besten zwischen 20 und 30 Grad.',
+        wrongExplanations: {
+          0: 'Im Aufgabentext steht ausdrücklich helles Fenster. Bei solchen Aufgaben lohnt es sich, zuerst abzuhaken, was als ausreichend beschrieben wird.',
+          1: 'Sie wird gut gegossen, Wasser ist also versorgt. Der begrenzende Faktor ist immer der, der gerade NICHT ausreicht.',
+          3: 'Kohlenstoffdioxid steckt in der Luft und ist im Wintergarten genauso vorhanden wie draußen. Knapp wird es nur, wenn die Spaltöffnungen geschlossen sind, und davon steht hier nichts.'
+        }
       }
     ]
   },
@@ -1103,7 +1153,12 @@ const LessonsFoto = [
           'Nur die Lebewesen, die keine Fotosynthese können'
         ],
         correct: 2,
-        explanation: 'Richtig. Jedes Lebewesen mit Mitochondrien betreibt Zellatmung, rund um die Uhr. Pflanzen machen zusätzlich Fotosynthese - aber die ersetzt die Zellatmung nicht.'
+        explanation: 'Richtig. Jedes Lebewesen mit Mitochondrien betreibt Zellatmung, rund um die Uhr. Pflanzen machen zusätzlich Fotosynthese - aber die ersetzt die Zellatmung nicht.',
+        wrongExplanations: {
+          0: 'Bewegung ist nur einer von vielen Gründen, warum ein Lebewesen Energie braucht. Wachsen und sich reparieren kostet ebenfalls Energie, und das tun Pflanzen auch.',
+          1: 'Umgekehrt gedacht. Pflanzen stellen den Zucker zwar selbst her, aber verbrennen müssen ihn alle Lebewesen.',
+          3: 'Das ist der häufigste Denkfehler zur Zellatmung: Fotosynthese ersetzt sie nicht. Pflanzen machen beides, sie laden den Akku und nutzen ihn auch.'
+        }
       },
       {
         type: 'multiple-choice',
@@ -1115,7 +1170,12 @@ const LessonsFoto = [
           'Sie gibt weiter Sauerstoff ab, nur in geringeren Mengen als tagsüber'
         ],
         correct: 1,
-        explanation: 'Genau. Ohne Licht keine Fotosynthese. Die Zellatmung läuft aber weiter - die Pflanze braucht ja auch nachts Energie. Deshalb verbraucht sie nachts Sauerstoff und gibt CO2 ab.'
+        explanation: 'Genau. Ohne Licht keine Fotosynthese. Die Zellatmung läuft aber weiter - die Pflanze braucht ja auch nachts Energie. Deshalb verbraucht sie nachts Sauerstoff und gibt CO2 ab.',
+        wrongExplanations: {
+          0: 'Ohne Licht läuft gar keine Fotosynthese, nicht nur eine langsamere. Licht ist der Antrieb, nicht bloß ein Beschleuniger.',
+          2: 'Eine Pflanze ruht nicht wie ein ausgeschaltetes Gerät. Auch nachts braucht sie Energie, deshalb läuft die Zellatmung rund um die Uhr weiter.',
+          3: 'Genau andersherum. Nachts verbraucht die Pflanze Sauerstoff und gibt Kohlenstoffdioxid ab, weil nur noch die Zellatmung läuft.'
+        }
       },
       {
         type: 'matching',
@@ -1309,7 +1369,12 @@ const LessonsFoto = [
           'Nur wenn die Maus vorher genug gefressen hat'
         ],
         correct: 1,
-        explanation: 'Richtig. Ohne Licht keine Fotosynthese - dann verbraucht die Pflanze selbst Sauerstoff und macht die Lage sogar schlechter. Genau daran scheiterten Priestleys erste Versuche.'
+        explanation: 'Richtig. Ohne Licht keine Fotosynthese - dann verbraucht die Pflanze selbst Sauerstoff und macht die Lage sogar schlechter. Genau daran scheiterten Priestleys erste Versuche.',
+        wrongExplanations: {
+          0: 'Genau dieser Irrtum ließ Priestleys erste Versuche scheitern. Im Dunkeln verbraucht die Pflanze selbst Sauerstoff, statt welchen zu liefern.',
+          2: 'Umgekehrt. Nachts wird die Pflanze für die Maus sogar zur Konkurrentin um den Sauerstoff im Glas.',
+          3: 'Ob die Maus satt ist, ändert nichts daran, ob die Pflanze Sauerstoff produziert. Das hängt allein am Licht.'
+        }
       },
       {
         type: 'ordering',
@@ -1334,7 +1399,12 @@ const LessonsFoto = [
           'Weil die Pflanzen nachts Kohlenstoffdioxid statt Sauerstoff abgeben'
         ],
         correct: 1,
-        explanation: 'Genau. Nachts fällt die Fotosynthese weg, aber die Zellatmung von Fischen UND Pflanzen läuft weiter. Über die ganze Nacht sinkt der Sauerstoffgehalt deshalb stetig.'
+        explanation: 'Genau. Nachts fällt die Fotosynthese weg, aber die Zellatmung von Fischen UND Pflanzen läuft weiter. Über die ganze Nacht sinkt der Sauerstoffgehalt deshalb stetig.',
+        wrongExplanations: {
+          0: 'Die meisten Fische sind nachts ruhiger als am Tag, nicht unruhiger. Und selbst wenn nicht, wäre das nicht der Hauptgrund.',
+          2: 'Physikalisch ist es genau umgekehrt: In kälterem Wasser löst sich mehr Sauerstoff, nicht weniger.',
+          3: 'Der erste Teil stimmt sogar, nachts geben Pflanzen Kohlenstoffdioxid ab. Entscheidend ist aber, dass gleichzeitig Sauerstoff verbraucht wird und keiner mehr nachkommt.'
+        }
       },
       {
         type: 'multiple-choice',
@@ -1346,7 +1416,12 @@ const LessonsFoto = [
           'Beide setzen Energie frei, nur zu verschiedenen Zeiten'
         ],
         correct: 0,
-        explanation: 'Richtig. Die Fotosynthese packt Sonnenenergie in den Zucker hinein - wie einen Akku laden. Die Zellatmung holt sie wieder heraus - wie den Akku nutzen.'
+        explanation: 'Richtig. Die Fotosynthese packt Sonnenenergie in den Zucker hinein - wie einen Akku laden. Die Zellatmung holt sie wieder heraus - wie den Akku nutzen.',
+        wrongExplanations: {
+          1: 'Genau vertauscht. Merkhilfe: Die Fotosynthese lädt den Akku auf, die Zellatmung nutzt ihn.',
+          2: 'Wenn beide speichern würden, käme die Energie nie wieder heraus. Irgendwo muss sie freigesetzt werden, sonst könnte sich kein Lebewesen bewegen.',
+          3: 'Dann müsste die Energie aus dem Nichts kommen. Die Fotosynthese holt sie aus dem Sonnenlicht und packt sie in den Zucker hinein.'
+        }
       }
     ]
   }
