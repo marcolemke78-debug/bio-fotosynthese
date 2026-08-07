@@ -19,10 +19,15 @@ const Exercises = {
         return Exercises.renderOrdering(exercise, container, onComplete);
       case 'labeling':
         return Exercises.renderLabeling(exercise, container, onComplete);
-      default:
+      // Eigene Klammern, sonst gilt das const fuer den gesamten switch-Block
+      default: {
         const div = document.createElement('div');
         div.textContent = 'Übungstyp "' + exercise.type + '" wird noch implementiert.';
         container.appendChild(div);
+        // Durchwinken: Ohne diesen Aufruf zaehlt die Lektion die Uebung nie als
+        // erledigt und laesst sich gar nicht mehr abschliessen.
+        onComplete();
+      }
     }
   },
 
@@ -595,6 +600,15 @@ Exercises.renderLabeling = function(exercise, container, onComplete) {
     g.setAttribute('class', 'labeling-spot');
     g.setAttribute('transform', 'translate(' + spot.x + ',' + spot.y + ')');
 
+    // Unsichtbarer Kreis nur fuer die Treffer-Flaeche. Das SVG wird ueber die
+    // viewBox mitskaliert - auf schmalen Geraeten schrumpft der sichtbare
+    // Punkt (r=16) unter die 44px-Grenze fuer Finger-Bedienung. r=30 haelt die
+    // Flaeche gross genug, ohne dass sich benachbarte Punkte ueberschneiden
+    // (engster Abstand zweier Punkte in der Grafik: rund 108 Einheiten).
+    var hit = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    hit.setAttribute('r', '30');
+    hit.setAttribute('class', 'spot-hit');
+
     var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     circle.setAttribute('r', '16');   // 32px Durchmesser - gut treffbar per Finger
     circle.setAttribute('class', 'spot-circle');
@@ -605,6 +619,7 @@ Exercises.renderLabeling = function(exercise, container, onComplete) {
     text.setAttribute('dy', '5');
     text.textContent = '?';
 
+    g.appendChild(hit);
     g.appendChild(circle);
     g.appendChild(text);
 
@@ -624,6 +639,8 @@ Exercises.renderLabeling = function(exercise, container, onComplete) {
         text.textContent = selectedTerm.text;
         text.setAttribute('class', 'spot-text solved');
         circle.setAttribute('r', '0');        // Kreis weg, nur noch Beschriftung
+        hit.setAttribute('r', '0');           // Trefferflaeche mit weg, sonst
+                                              // bleibt der geloeste Punkt anklickbar
         selectedTerm.button.disabled = true;
         selectedTerm.button.classList.remove('selected');
         selectedTerm = null;

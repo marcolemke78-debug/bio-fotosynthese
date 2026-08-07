@@ -852,6 +852,14 @@ p {
 
 .labeling-spot { cursor: pointer; }
 
+/* Vergroesserte Trefferflaeche: unsichtbar, faengt aber die Klicks ab.
+   fill:transparent statt fill:none - bei "none" waere der Kreis nicht
+   anklickbar. */
+.spot-hit {
+  fill: transparent;
+  pointer-events: all;
+}
+
 .spot-circle {
   fill: #2563EB;
   opacity: 0.85;

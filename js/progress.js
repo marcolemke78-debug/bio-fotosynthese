@@ -84,9 +84,17 @@ const Progress = {
     this.save(data);
   },
 
-  // Fortschritt komplett zuruecksetzen
+  // Fortschritt komplett zuruecksetzen.
+  // removeItem kann aus denselben Gruenden werfen wie setItem oben. Ohne
+  // try/catch wuerde der Klick auf "Fortschritt zuruecksetzen" mitten im
+  // Handler abbrechen - die App bliebe dann auf der alten Lektion stehen,
+  // statt wie vorgesehen zu Lektion 1 zu springen.
   reset() {
-    localStorage.removeItem(this.STORAGE_KEY);
+    try {
+      localStorage.removeItem(this.STORAGE_KEY);
+    } catch (e) {
+      console.warn('Fortschritt konnte nicht zurueckgesetzt werden:', e);
+    }
   },
 
   // Prozent der abgeschlossenen Lektionen im Bereich [start, end]

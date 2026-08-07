@@ -3,16 +3,14 @@
  * Navigation und Initialisierung.
  */
 
-// Uebersicht aller Lektionen. Die IDs duerfen spaeter NICHT mehr geaendert
-// werden, sonst verliert man den im Browser gespeicherten Fortschritt.
-const LESSONS = [
-  { id: 1, title: 'Die Zelle als Fabrik' },
-  { id: 2, title: 'Fotosynthese: rein und raus' },
-  { id: 3, title: 'Das Blatt von innen' },
-  { id: 4, title: 'Was bremst die Fotosynthese?' },
-  { id: 5, title: 'Zellatmung' },
-  { id: 6, title: 'Der Kreislauf' }
-];
+// Uebersicht aller Lektionen fuer die Sidebar. ID und Titel kommen direkt aus
+// den Lektionsdaten - sonst muesste man jeden Titel an zwei Stellen pflegen und
+// die Sidebar koennte der H1-Ueberschrift widersprechen.
+// lessons-foto.js wird in index.html vor app.js geladen, LessonsFoto steht hier
+// also schon bereit.
+// Die IDs duerfen spaeter NICHT mehr geaendert werden, sonst verliert man den
+// im Browser gespeicherten Fortschritt.
+const LESSONS = LessonsFoto.map(lesson => ({ id: lesson.id, title: lesson.title }));
 
 /**
  * Navigiert zu einer bestimmten Lektion.
