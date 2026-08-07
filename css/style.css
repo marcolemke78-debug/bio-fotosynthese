@@ -943,6 +943,162 @@ p {
 /* Die Lektionsliste in der Sidebar hat eigene Abstaende */
 #sidebar ul { padding-left: 0; }
 
+/* === Wiederholung: "heute faellig"-Begruessung === */
+/* Farben bewusst aus der vorhandenen .tip-box uebernommen (Gelb = Hinweis),
+   damit sich der Kasten nicht wie ein Fremdkoerper anfuehlt. */
+#review-due {
+  margin-bottom: 2rem;
+}
+
+.review-due-card {
+  background: #fef9c3;
+  border-left: 4px solid #ca8a04;
+  padding: 12px 16px;
+  border-radius: 4px;
+  line-height: 1.55;
+}
+
+.review-due-head {
+  font-weight: 700;
+  color: #854d0e;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.review-due-icon {
+  font-size: 1.1rem;
+}
+
+.review-due-hint {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin: 0.4rem 0 0.8rem;
+}
+
+.review-due-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* min-height 48px: Trefferflaeche fuer den Finger auf dem iPad.
+   Die Hintergrund-Aenderung bei :active ist die Touch-Rueckmeldung -
+   :hover allein gibt es auf dem Tablet nicht. */
+.review-due-btn {
+  min-height: 48px;
+  background: var(--bg);
+  border: 1px solid #ca8a04;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.review-due-btn:hover,
+.review-due-btn:active {
+  background: #fef9c3;
+}
+
+.review-due-num {
+  font-weight: 600;
+  color: #854d0e;
+}
+
+.review-due-box {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #854d0e;
+  background: #fef9c3;
+  border-radius: 999px;
+}
+
+/* Dezentes Dauer-Signal in der Sidebar an faelligen Lektionen */
+.review-badge {
+  margin-left: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ca8a04;
+}
+
+#sidebar li.review-due-item {
+  font-weight: 600;
+}
+
+
+/* === Selbst-Check nach Lektionsabschluss === */
+.self-check {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent-light);
+}
+
+.self-check-head {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.self-check-hint {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin: 0.4rem 0 1rem;
+}
+
+.self-check-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* Die drei Knoepfe sind das wichtigste Touch-Ziel der ganzen Seite:
+   min-height 60px und min-width 140px liegen klar ueber den 44px,
+   die Apple als Untergrenze fuer Fingerbedienung nennt. */
+.self-check-btn {
+  flex: 1 1 140px;
+  min-height: 60px;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  padding: 0.7rem 0.5rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  cursor: pointer;
+}
+
+.sc-label { font-weight: 700; font-size: 0.95rem; color: var(--text); }
+.sc-sub   { font-size: 0.8rem; color: var(--text-light); }
+
+/* Farbige Rueckmeldung auch bei :active, sonst sieht man auf dem iPad
+   beim Antippen ueberhaupt nichts. */
+.self-check-low:hover,    .self-check-low:active    { border-color: var(--error);   background: #fef2f2; }
+.self-check-medium:hover, .self-check-medium:active { border-color: #ca8a04;        background: #fef9c3; }
+.self-check-high:hover,   .self-check-high:active   { border-color: var(--success); background: #f0fdf4; }
+
+.self-check-done {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--success);
+}
+
+.self-check-done .sc-box {
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+
 /* ===================================================================
  * Diese Regel MUSS am Dateiende stehen.
  * Sichtbarkeit des Hamburger-Knopfs wird ueber die Kaskade entschieden:

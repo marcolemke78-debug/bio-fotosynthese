@@ -1,6 +1,102 @@
 const Renderer = {
 
   /**
+   * "Heute faellig"-Sektion rendern (Spaced Repetition).
+   * Bewusst nur als Begruessung beim App-Start und NICHT als Dauer-Banner:
+   * ein Kasten, der ueber jeder Seite klebt, wird nach zwei Tagen
+   * uebersehen (Banner-Blindheit). Die dauerhafte Erinnerung uebernehmen
+   * die kleinen Badges in der Sidebar.
+   * Ist nichts faellig, erscheint gar nichts - kein leerer Kasten.
+   */
+  renderReviewDue() {
+    const box = document.getElementById('review-due');
+    if (!box) return;
+    const due = Progress.getDueLessons();
+    if (due.length === 0) {
+      box.innerHTML = '';
+      box.style.display = 'none';
+      return;
+    }
+    box.style.display = '';
+
+    const heading = due.length === 1
+      ? '1 Lektion ist heute zur Wiederholung fällig'
+      : due.length + ' Lektionen sind heute zur Wiederholung fällig';
+
+    let html = '<div class="review-due-card">'
+      + '<div class="review-due-head"><span class="review-due-icon">↻</span> ' + heading + '</div>'
+      + '<p class="review-due-hint">Verteiltes Wiederholen festigt das Gelernte. Tippe auf eine Lektion und mach ihre Übungen noch einmal.</p>'
+      + '<div class="review-due-list">';
+    due.forEach(item => {
+      const meta = LESSONS.find(l => l.id === item.id);
+      const title = meta ? meta.title : 'Lektion ' + item.id;
+      html += '<button class="review-due-btn" data-lesson-id="' + item.id + '">'
+        + '<span class="review-due-num">Lektion ' + item.id + '</span> ' + title
+        + ' <span class="review-due-box">Fach ' + item.box + '</span></button>';
+    });
+    html += '</div></div>';
+    box.innerHTML = html;
+
+    box.querySelectorAll('.review-due-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        navigateToLesson(parseInt(btn.dataset.lessonId, 10));
+      });
+    });
+  },
+
+  /**
+   * Selbst-Check nach Lektionsabschluss.
+   * Leonie schaetzt selbst ein, wie sicher sie sich fuehlt - und steuert
+   * damit ueber Progress.recordCompletion, wann die Lektion wieder dran ist.
+   * Nach dem Klick wird der ganze Kasten durch die Bestaetigung ersetzt,
+   * damit nie unklar bleibt, ob der Tipper gezaehlt hat.
+   */
+  renderSelfCheck(lessonId, container) {
+    // Falls die Uebungen erneut durchgespielt wurden: alten Kasten entfernen,
+    // sonst haengen mehrere Selbst-Checks untereinander.
+    const existing = container.querySelector('.self-check');
+    if (existing) existing.remove();
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'self-check';
+
+    const head = document.createElement('div');
+    head.className = 'self-check-head';
+    head.textContent = 'Geschafft! Wie sicher fühlst du dich jetzt mit dieser Lektion?';
+    wrapper.appendChild(head);
+
+    const hint = document.createElement('p');
+    hint.className = 'self-check-hint';
+    hint.textContent = 'Sei ehrlich zu dir selbst. Deine Einschätzung steuert, wann die Lektion zur Wiederholung kommt.';
+    wrapper.appendChild(hint);
+
+    const btnRow = document.createElement('div');
+    btnRow.className = 'self-check-btns';
+    const options = [
+      { conf: 'low',    label: 'Noch unsicher', sub: 'morgen nochmal' },
+      { conf: 'medium', label: 'Geht so',       sub: 'bald wieder' },
+      { conf: 'high',   label: 'Sitzt sicher',  sub: 'später wieder' }
+    ];
+    options.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = 'self-check-btn self-check-' + opt.conf;
+      btn.innerHTML = '<span class="sc-label">' + opt.label + '</span><span class="sc-sub">' + opt.sub + '</span>';
+      btn.addEventListener('click', () => {
+        Progress.recordCompletion(lessonId, opt.conf);
+        const info = Progress.getReviewInfo(lessonId);
+        const days = info ? Progress.INTERVALS[info.box - 1] : null;
+        const dayText = days === 1 ? 'morgen' : 'in ' + days + ' Tagen';
+        wrapper.innerHTML = '<div class="self-check-done">✓ Gespeichert! Diese Lektion kommt '
+          + dayText + ' zur Wiederholung <span class="sc-box">(Fach ' + (info ? info.box : '?') + ')</span>.</div>';
+        Renderer.renderSidebar(LESSONS);
+      });
+      btnRow.appendChild(btn);
+    });
+    wrapper.appendChild(btnRow);
+    container.appendChild(wrapper);
+  },
+
+  /**
    * Sidebar mit Lektionsliste aufbauen.
    * Jede Lektion bekommt ein <li> mit data-lesson-id und einer
    * CSS-Klasse je nach Fortschrittsstatus.
@@ -20,6 +116,21 @@ const Renderer = {
 
       // Icon fuer klausurrelevante Lektionen (vor dem Titel)
       li.textContent = prefix + lesson.title;
+
+      // Badge fuer faellige Wiederholungen. Das ist die dauerhafte, dezente
+      // Erinnerung (Anki-/Duolingo-Muster) - der Begruessungs-Kasten oben
+      // verschwindet ja, sobald Leonie in eine Lektion navigiert.
+      // getReviewInfo liefert null, solange die Lektion nie eingeschaetzt
+      // wurde (auch bei altem Fortschritt ohne SR-Felder) - dann kein Badge.
+      const review = Progress.getReviewInfo(lesson.id);
+      if (review && review.due) {
+        li.classList.add('review-due-item');
+        const badge = document.createElement('span');
+        badge.className = 'review-badge';
+        badge.textContent = '↻';
+        badge.title = 'Heute zur Wiederholung fällig';
+        li.appendChild(badge);
+      }
 
       list.appendChild(li);
     });
@@ -152,6 +263,9 @@ const Renderer = {
             Progress.setStatus(id, 'completed');
             Renderer.renderSidebar(LESSONS);
             Renderer.renderProgressBar();
+            // Selbst-Check direkt unter die letzte Uebung haengen. Das Fach
+            // im Leitner-System wird erst durch diesen Klick gesetzt.
+            Renderer.renderSelfCheck(id, exercisesSection);
           }
         });
       });

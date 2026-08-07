@@ -19,6 +19,12 @@ function navigateToLesson(id) {
   // Sidebar schliessen (wichtig auf dem Tablet)
   document.getElementById('sidebar').classList.remove('open');
 
+  // Der "heute faellig"-Kasten ist eine Begruessung, kein Dauer-Banner:
+  // sobald Leonie aktiv eine Lektion oeffnet, hat er seinen Zweck erfuellt
+  // und verschwindet. Die Erinnerung bleibt ueber die Sidebar-Badges sichtbar.
+  const reviewBox = document.getElementById('review-due');
+  if (reviewBox) reviewBox.style.display = 'none';
+
   Progress.setLastLesson(id);
 
   // Beim ersten Oeffnen einer Lektion Status auf "angefangen" setzen
@@ -46,6 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Dort weitermachen, wo zuletzt aufgehoert wurde
   const last = Progress.getLastLesson();
   navigateToLesson(last || 1);
+
+  // Faellig-Kasten NACH der ersten Navigation zeigen - navigateToLesson
+  // blendet ihn ja aus, in dieser Reihenfolge ueberlebt die Begruessung.
+  Renderer.renderReviewDue();
 
   // Hamburger-Menue (Tablet/Handy)
   const menuBtn = document.getElementById('menu-toggle');
