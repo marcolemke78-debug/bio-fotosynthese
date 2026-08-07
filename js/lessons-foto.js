@@ -987,10 +987,10 @@ const LessonsFoto = [
           die <strong>Umkehrung</strong> der Fotosynthese. Was bei der einen
           hineingeht, kommt bei der anderen heraus:
           <br><br>
-          Fotosynthese: <em>Licht</em> + CO<sub>2</sub> + Wasser
+          Fotosynthese: <em>Licht</em> + Kohlenstoff&shy;dioxid + Wasser
           &rarr; Zucker + Sauerstoff<br>
           Zellatmung: &nbsp;&nbsp;Zucker + Sauerstoff
-          &rarr; CO<sub>2</sub> + Wasser + <em>Energie</em>
+          &rarr; Kohlenstoff&shy;dioxid + Wasser + <em>Energie</em>
           <br><br>
           Wenn du eine Gleichung kannst, kannst du die andere auch.
           <br><br>
